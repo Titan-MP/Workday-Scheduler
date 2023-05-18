@@ -1,18 +1,15 @@
-let time = dayjs();
-let store;
-
-let getStore = async () => {
-  store = (await localStorage.hours) ? JSON.parse(localStorage.hours) : [];
-  store.forEach((task, i) => {
-    $("textarea").eq(i).val(task);
-  });
+const getStore = async () => {
+  const store = await localStorage.hours ? JSON.parse(localStorage.hours) : [];
+  for (const [i, task] of store.entries()) {
+    $(`textarea:eq(${i})`).val(task);
+  }
 };
 
 getStore();
 
-currentDay.innerHTML = time.format("MMM D YYYY, h:mm A ");
+currentDay.innerHTML = dayjs().format("MMM D YYYY, h:mm A ");
 
-let hours = [
+const hours = [
   "9AM",
   "10AM",
   "11AM",
@@ -24,9 +21,10 @@ let hours = [
   "5PM",
 ];
 
-hours.forEach((hour, i) => {
-  let cH = time.format("H");
-  let rH = i + 1;
+const cH = dayjs().format("H");
+
+for (const hour of hours) {
+  const rH = hours.indexOf(hour) + 1;
 
   main.innerHTML += `
     <div id="hour-${rH}" class="row time-block ${
@@ -39,11 +37,11 @@ hours.forEach((hour, i) => {
       </button>
     </div>
   `;
-});
+}
 
 const saveStore = () => {
   const areas = document.querySelectorAll("textarea");
-  let store = [];
+  const store = [];
 
   areas.forEach((area) => {
     store.push(area.value);
