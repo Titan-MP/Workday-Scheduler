@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
 }
 
   header {
@@ -12,7 +12,7 @@ textarea {
   border: none;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
+  border-left: 5px solid black;
   padding: 10px;
 }
 
@@ -32,6 +32,7 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+;
 }
 
 .past {
@@ -45,7 +46,7 @@ textarea {
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #a1e7f0;
   color: white;
 }
 
@@ -58,6 +59,6 @@ textarea {
 }
 
 .saveBtn i:hover {
-  font-size: 20px;
+  font-size: 50px;
   transition: all 0.3s ease-in-out;
 }
